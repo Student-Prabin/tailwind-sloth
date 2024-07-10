@@ -1,21 +1,28 @@
 import React from 'react'
 import './index.css';
-import Header from './components/Header';
-import DisplaySection from './pages/home/DisplaySection';
-import Tech from './pages/home/Tech';
-import Intro from './pages/home/Intro';
-import Footer from './components/Footer';
+import Home from './pages/Home';
+import Contact from './pages/Contact';
+import About from './pages/About';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const App = () => {
-  return (
-    <div>
-        <Header />
-        <DisplaySection />
-        <Tech />
-        <Intro />
-        <Footer />
-    </div>
-  )
+
+    const router = createBrowserRouter([
+      {
+        path:'/',
+        element:<Home />
+      },
+      {
+        path:'contact-page',
+        element:<Contact />
+      },{
+        path:'about-page',
+        element:<About />
+      }
+    ]);
+
+    return <RouterProvider router={router} />
+
 }
 
 export default App;
