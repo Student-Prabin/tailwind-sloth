@@ -7,7 +7,7 @@ const Home = () => {
     <div>
       <Header />
       <h1>I am Home</h1>
-      <NavLink to={'/page1'}>Page 1</NavLink>
+      <NavLink to={'/'}>Page 1</NavLink>
       <NavLink to={'/page2'}>Page 2</NavLink>
       <Outlet />
     </div>
