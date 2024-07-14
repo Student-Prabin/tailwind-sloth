@@ -1,15 +1,29 @@
+import { useFormik } from 'formik'
 import React from 'react'
-import Header from '../components/Header'
-import { NavLink, Outlet } from 'react-router-dom'
 
 const Home = () => {
+   
+  const formik =useFormik({
+    initialValues:{
+      username:''
+    },
+    onSubmit: (val)=>{
+      console.log(val);
+    }
+  });
+
   return (
-    <div>
+    <div className='p-4'>
+      <h1>HEllo THIs is time pass</h1>
+      <form onSubmit={formik.handleSubmit}>
+        <input 
+        name="username"
+        value={formik.values.username}
+        onChange={formik.handleChange}
+        className='border-2 border-black' type='text' placeholder='Your Name'></input>
+      </form>
       
-      <h1>I am Home</h1>
-      <NavLink to={'page1'}>Page 1</NavLink>
-      <NavLink to={'/page2'}>Page 2</NavLink>
-      <Outlet />
+
     </div>
   )
 }

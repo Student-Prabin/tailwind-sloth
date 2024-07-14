@@ -7,6 +7,8 @@ import Page1 from './pages/sub-pages/Page1';
 import Page2 from './pages/sub-pages/Page2';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import RootLayout from './components/RootLayout';
+import DetailPage from './pages/DetailPage';
+import NotFound from './components/NotFound';
 
 const App = () => {
 
@@ -16,23 +18,32 @@ const App = () => {
         element:<RootLayout />,
         children:[
           {
-            index:true,
+            path:'home',
             element:<Home />
           },
           {
-            path:'page1',
+            path:'details/id:',
+            element:<DetailPage/>
+          },
+          {
+            path:'page-1',
             element:<Page1 />
           },
           {
-            path:'page2',
+            path:'page-2',
             element:<Page2 />
           },
           {
             path:'contact-page',
             element:<Contact />
-          },{
+          },
+          {
             path:'about-page',
             element:<About />
+          },
+          {
+            path:'*',
+            element:<NotFound />
           }
           
         ]

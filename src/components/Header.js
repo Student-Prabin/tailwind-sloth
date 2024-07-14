@@ -4,7 +4,8 @@ import { NavLink } from 'react-router-dom';
 const Header = () => {
   return (
     <header className='bg-black text-white flex items-baseline justify-between px-4 py-2'>
-        <h1 className='text-3xl'>Web Tail</h1>
+        {/* <h1 className='text-3xl'>Web Tail</h1> */}
+        <NavLink to={'/home'} className='text-3xl'>Web Tail</NavLink>
         <FaBarsStaggered className='hidden sm:flex'/>
         <nav className='sm:hidden'>
            <NavLink to={'/about-page'} className='hover:bg-white hover:text-black px-4 py-2'>About</NavLink>
