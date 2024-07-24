@@ -1,31 +1,38 @@
-import { useFormik } from 'formik'
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 
-const Home = () => {
-   
-  const formik =useFormik({
-    initialValues:{
-      username:''
-    },
-    onSubmit: (val)=>{
-      console.log(val);
+const HomePage = () => {
+  // www.themealdb.com/api/json/v1/1/categories.php
+  const [data, setData] = useState();
+
+  const getData = async () => {
+    try {
+      const response = await axios.get('https://www.themealdb.com/api/json/v1/1/categories.php');
+      setData(response.data);
+    } catch (err) {
+      console.log(err);
     }
-  });
+
+  }
+
+  useEffect(() => {
+    console.log('hello jee');
+    getData();
+  }, []);
+
+  console.log(data)
 
   return (
-    <div className='p-4'>
-      <h1>HEllo THIs is time pass</h1>
-      <form onSubmit={formik.handleSubmit}>
-        <input 
-        name="username"
-        value={formik.values.username}
-        onChange={formik.handleChange}
-        className='border-2 border-black' type='text' placeholder='Your Name'></input>
-      </form>
-      
+    <div>
+
+      {data?.categories.map((cata, i) => {
+
+      })}
+
+
 
     </div>
   )
 }
 
-export default Home
+export default HomePage
